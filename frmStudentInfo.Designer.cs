@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentInfo));
             this.gbIDCard = new System.Windows.Forms.GroupBox();
             this.tbStudentGrade = new System.Windows.Forms.MaskedTextBox();
             this.tbStudentGender = new System.Windows.Forms.MaskedTextBox();
@@ -220,6 +221,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gbIDCard);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmStudentInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Info";

@@ -515,6 +515,7 @@
             this.Controls.Add(this.gbIDCard);
             this.Controls.Add(this.gbStudentInfo);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmStudentManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management";
