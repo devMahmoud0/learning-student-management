@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblTitle = new System.Windows.Forms.Label();
             this.gbStudentInfo = new System.Windows.Forms.GroupBox();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -58,8 +59,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pbPersonalPicture = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.SmallImageList = new System.Windows.Forms.ImageList(this.components);
+            this.StudentListView = new System.Windows.Forms.ListView();
             this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,6 +70,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.LargeImageList = new System.Windows.Forms.ImageList(this.components);
             this.gbStudentInfo.SuspendLayout();
             this.gbIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonalPicture)).BeginInit();
@@ -123,21 +125,21 @@
             this.tbPhone.Location = new System.Drawing.Point(77, 130);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(254, 23);
-            this.tbPhone.TabIndex = 12;
+            this.tbPhone.TabIndex = 3;
             // 
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(77, 97);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(254, 23);
-            this.tbEmail.TabIndex = 11;
+            this.tbEmail.TabIndex = 2;
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(77, 64);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(254, 23);
-            this.tbName.TabIndex = 10;
+            this.tbName.TabIndex = 1;
             // 
             // tbID
             // 
@@ -145,7 +147,7 @@
             this.tbID.Location = new System.Drawing.Point(77, 31);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(254, 23);
-            this.tbID.TabIndex = 2;
+            this.tbID.TabIndex = 0;
             this.tbID.ValidatingType = typeof(int);
             // 
             // label1
@@ -163,7 +165,7 @@
             this.rbFemale.Location = new System.Drawing.Point(157, 205);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(72, 21);
-            this.rbFemale.TabIndex = 8;
+            this.rbFemale.TabIndex = 6;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -174,13 +176,14 @@
             this.rbMale.Location = new System.Drawing.Point(77, 205);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(56, 21);
-            this.rbMale.TabIndex = 7;
+            this.rbMale.TabIndex = 5;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
             // cbGrade
             // 
+            this.cbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGrade.FormattingEnabled = true;
             this.cbGrade.Items.AddRange(new object[] {
             "High",
@@ -189,7 +192,7 @@
             this.cbGrade.Location = new System.Drawing.Point(77, 164);
             this.cbGrade.Name = "cbGrade";
             this.cbGrade.Size = new System.Drawing.Size(254, 24);
-            this.cbGrade.TabIndex = 2;
+            this.cbGrade.TabIndex = 4;
             // 
             // lblGrade
             // 
@@ -363,28 +366,33 @@
             this.pbPersonalPicture.TabIndex = 0;
             this.pbPersonalPicture.TabStop = false;
             // 
-            // imageList1
+            // SmallImageList
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.SmallImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("SmallImageList.ImageStream")));
+            this.SmallImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.SmallImageList.Images.SetKeyName(0, "Boy.png");
+            this.SmallImageList.Images.SetKeyName(1, "Girl.png");
             // 
-            // listView1
+            // StudentListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.StudentListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnID,
             this.columnName,
             this.columnEmail,
             this.columnPhone,
             this.columnGrade,
             this.columnGender});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 345);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(776, 276);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.StudentListView.FullRowSelect = true;
+            this.StudentListView.GridLines = true;
+            this.StudentListView.HideSelection = false;
+            this.StudentListView.LargeImageList = this.LargeImageList;
+            this.StudentListView.Location = new System.Drawing.Point(12, 345);
+            this.StudentListView.Name = "StudentListView";
+            this.StudentListView.Size = new System.Drawing.Size(776, 276);
+            this.StudentListView.SmallImageList = this.SmallImageList;
+            this.StudentListView.TabIndex = 3;
+            this.StudentListView.UseCompatibleStateImageBehavior = false;
+            this.StudentListView.View = System.Windows.Forms.View.Details;
             // 
             // columnID
             // 
@@ -423,8 +431,9 @@
             this.btnRemove.Location = new System.Drawing.Point(259, 299);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(102, 40);
-            this.btnRemove.TabIndex = 6;
+            this.btnRemove.TabIndex = 9;
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
@@ -433,7 +442,7 @@
             this.btnAdd.Location = new System.Drawing.Point(151, 299);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 40);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -444,18 +453,26 @@
             this.btnPrint.Location = new System.Drawing.Point(12, 299);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(102, 40);
-            this.btnPrint.TabIndex = 4;
+            this.btnPrint.TabIndex = 7;
             this.btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // LargeImageList
+            // 
+            this.LargeImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("LargeImageList.ImageStream")));
+            this.LargeImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.LargeImageList.Images.SetKeyName(0, "Boy.png");
+            this.LargeImageList.Images.SetKeyName(1, "Girl.png");
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 633);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.StudentListView);
             this.Controls.Add(this.gbIDCard);
             this.Controls.Add(this.gbStudentInfo);
             this.Controls.Add(this.lblTitle);
@@ -501,8 +518,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox maskedTextBox5;
         private System.Windows.Forms.MaskedTextBox maskedTextBox6;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ImageList SmallImageList;
+        private System.Windows.Forms.ListView StudentListView;
         private System.Windows.Forms.ColumnHeader columnID;
         private System.Windows.Forms.ColumnHeader columnName;
         private System.Windows.Forms.ColumnHeader columnEmail;
@@ -512,6 +529,7 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.ImageList LargeImageList;
     }
 }
 
