@@ -100,5 +100,8 @@
   <ItemGroup>
     <None Include="Resources\Printer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editUser.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

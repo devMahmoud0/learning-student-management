@@ -58,7 +58,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pbPersonalPicture = new System.Windows.Forms.PictureBox();
             this.SmallImageList = new System.Windows.Forms.ImageList(this.components);
             this.StudentListView = new System.Windows.Forms.ListView();
             this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,11 +67,13 @@
             this.columnGrade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnGender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LargeImageList = new System.Windows.Forms.ImageList(this.components);
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.btnFillStudents = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEditStudent = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.pbPersonalPicture = new System.Windows.Forms.PictureBox();
             this.gbStudentInfo.SuspendLayout();
             this.gbIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonalPicture)).BeginInit();
@@ -360,15 +361,6 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "ID :";
             // 
-            // pbPersonalPicture
-            // 
-            this.pbPersonalPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonalPicture.Location = new System.Drawing.Point(6, 22);
-            this.pbPersonalPicture.Name = "pbPersonalPicture";
-            this.pbPersonalPicture.Size = new System.Drawing.Size(148, 135);
-            this.pbPersonalPicture.TabIndex = 0;
-            this.pbPersonalPicture.TabStop = false;
-            // 
             // SmallImageList
             // 
             this.SmallImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("SmallImageList.ImageStream")));
@@ -397,6 +389,7 @@
             this.StudentListView.UseCompatibleStateImageBehavior = false;
             this.StudentListView.View = System.Windows.Forms.View.Details;
             this.StudentListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.StudentListView_ItemSelectionChanged);
+            this.StudentListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StudentListView_MouseDoubleClick);
             // 
             // columnID
             // 
@@ -435,40 +428,6 @@
             this.LargeImageList.Images.SetKeyName(0, "Boy.png");
             this.LargeImageList.Images.SetKeyName(1, "Girl.png");
             // 
-            // btnRemove
-            // 
-            this.btnRemove.BackgroundImage = global::Student_Management.Properties.Resources.remove_user;
-            this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRemove.Location = new System.Drawing.Point(259, 299);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(102, 40);
-            this.btnRemove.TabIndex = 9;
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = global::Student_Management.Properties.Resources.add_user;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Location = new System.Drawing.Point(151, 299);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 40);
-            this.btnAdd.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnAdd, "Add new student");
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackgroundImage = global::Student_Management.Properties.Resources.Printer;
-            this.btnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPrint.Location = new System.Drawing.Point(12, 299);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(102, 40);
-            this.btnPrint.TabIndex = 7;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // btnFillStudents
             // 
             this.btnFillStudents.Location = new System.Drawing.Point(685, 299);
@@ -487,12 +446,67 @@
             this.toolTip1.InitialDelay = 1000;
             this.toolTip1.ReshowDelay = 500;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = global::Student_Management.Properties.Resources.add_user;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.Location = new System.Drawing.Point(151, 299);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 40);
+            this.btnAdd.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnAdd, "Add new student");
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEditStudent
+            // 
+            this.btnEditStudent.BackgroundImage = global::Student_Management.Properties.Resources.editUser;
+            this.btnEditStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditStudent.Location = new System.Drawing.Point(577, 299);
+            this.btnEditStudent.Name = "btnEditStudent";
+            this.btnEditStudent.Size = new System.Drawing.Size(102, 40);
+            this.btnEditStudent.TabIndex = 11;
+            this.btnEditStudent.UseVisualStyleBackColor = true;
+            this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackgroundImage = global::Student_Management.Properties.Resources.remove_user;
+            this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRemove.Location = new System.Drawing.Point(259, 299);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(102, 40);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackgroundImage = global::Student_Management.Properties.Resources.Printer;
+            this.btnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrint.Location = new System.Drawing.Point(12, 299);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(102, 40);
+            this.btnPrint.TabIndex = 7;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // pbPersonalPicture
+            // 
+            this.pbPersonalPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPersonalPicture.Location = new System.Drawing.Point(6, 22);
+            this.pbPersonalPicture.Name = "pbPersonalPicture";
+            this.pbPersonalPicture.Size = new System.Drawing.Size(148, 135);
+            this.pbPersonalPicture.TabIndex = 0;
+            this.pbPersonalPicture.TabStop = false;
+            // 
             // frmStudentManagement
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 633);
+            this.Controls.Add(this.btnEditStudent);
             this.Controls.Add(this.btnFillStudents);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
@@ -558,6 +572,7 @@
         private System.Windows.Forms.ImageList LargeImageList;
         private System.Windows.Forms.Button btnFillStudents;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnEditStudent;
     }
 }
 

@@ -46,12 +46,24 @@ namespace Student_Management
 
             StudentListView.Items.Add(Item);
 
+            tbID.Clear();
+            tbName.Clear();
+            tbEmail.Clear();
+            tbPhone.Clear();
+            cbGrade.SelectedIndex = -1;
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
+            tbID.Focus();
+
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (StudentListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a student first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
             StudentListView.SelectedItems[0].Remove();
         }
@@ -193,7 +205,7 @@ namespace Student_Management
             StudentListView.Items.Add(Item10);
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void ShowStudentInfoForm(bool IsCanEdit = false, ListViewItem item = null)
         {
             if (StudentListView.Items.Count == 0)
             {
@@ -207,9 +219,68 @@ namespace Student_Management
                 return;
             }
 
-            Form frm = new frmStudentInfo(pbPersonalPicture.BackgroundImage, tbStudentID.Text,
-                tbStudentName.Text, tbStudentEmail.Text, tbStudentPhone.Text, tbStudentGrade.Text, tbStudentGender.Text);
+            //Form frm = new frmStudentInfo(pbPersonalPicture.BackgroundImage, tbStudentID.Text,
+            //    tbStudentName.Text, tbStudentEmail.Text, tbStudentPhone.Text, tbStudentGrade.Text, tbStudentGender.Text, IsCanEdit);
+            Form frm = new frmStudentInfo(this, item, IsCanEdit);
             frm.ShowDialog();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            ShowStudentInfoForm();
+        }
+
+        private void StudentListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ShowStudentInfoForm();
+        }
+
+        public Image PersonalPicture
+        {
+            get { return pbPersonalPicture.BackgroundImage; }
+            set { pbPersonalPicture.BackgroundImage = value; }
+        }
+
+        public string StudentID
+        {
+            get { return tbStudentID.Text; }
+            set { tbStudentID.Text = value; }
+        }
+
+        public string StudentName
+        {
+            get { return tbStudentName.Text; }
+            set { tbStudentName.Text = value; }
+        }
+
+        public string StudentEmail
+        {
+            get { return tbStudentEmail.Text; }
+            set { tbStudentEmail.Text = value; }
+        }
+
+        public string StudentPhone
+        {
+            get { return tbStudentPhone.Text; }
+            set { tbStudentPhone.Text = value; }
+        }
+
+        public string StudentGrade
+        {
+            get { return tbStudentGrade.Text; }
+            set { tbStudentGrade.Text = value; }
+        }
+
+        public string StudentGender
+        {
+            get { return tbStudentGender.Text; }
+            set { tbStudentGender.Text = value; }
+        }
+
+        private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = StudentListView.SelectedItems[0];
+            ShowStudentInfoForm(true, item);
         }
     }
 }
