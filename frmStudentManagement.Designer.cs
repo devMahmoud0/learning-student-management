@@ -1,6 +1,6 @@
 ﻿namespace Student_Management
 {
-    partial class Form1
+    partial class frmStudentManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentManagement));
             this.lblTitle = new System.Windows.Forms.Label();
             this.gbStudentInfo = new System.Windows.Forms.GroupBox();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -46,13 +46,13 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.gbIDCard = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
+            this.tbStudentGrade = new System.Windows.Forms.MaskedTextBox();
+            this.tbStudentGender = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.tbStudentPhone = new System.Windows.Forms.MaskedTextBox();
+            this.tbStudentEmail = new System.Windows.Forms.MaskedTextBox();
+            this.tbStudentName = new System.Windows.Forms.MaskedTextBox();
+            this.tbStudentID = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,10 +67,12 @@
             this.columnPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnGrade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnGender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LargeImageList = new System.Windows.Forms.ImageList(this.components);
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.LargeImageList = new System.Windows.Forms.ImageList(this.components);
+            this.btnFillStudents = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gbStudentInfo.SuspendLayout();
             this.gbIDCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonalPicture)).BeginInit();
@@ -84,7 +86,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(800, 51);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Student Managment";
+            this.lblTitle.Text = "Student Management";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbStudentInfo
@@ -233,13 +235,13 @@
             // gbIDCard
             // 
             this.gbIDCard.BackColor = System.Drawing.SystemColors.Control;
-            this.gbIDCard.Controls.Add(this.maskedTextBox6);
-            this.gbIDCard.Controls.Add(this.maskedTextBox5);
+            this.gbIDCard.Controls.Add(this.tbStudentGrade);
+            this.gbIDCard.Controls.Add(this.tbStudentGender);
             this.gbIDCard.Controls.Add(this.label2);
-            this.gbIDCard.Controls.Add(this.maskedTextBox1);
-            this.gbIDCard.Controls.Add(this.maskedTextBox2);
-            this.gbIDCard.Controls.Add(this.maskedTextBox3);
-            this.gbIDCard.Controls.Add(this.maskedTextBox4);
+            this.gbIDCard.Controls.Add(this.tbStudentPhone);
+            this.gbIDCard.Controls.Add(this.tbStudentEmail);
+            this.gbIDCard.Controls.Add(this.tbStudentName);
+            this.gbIDCard.Controls.Add(this.tbStudentID);
             this.gbIDCard.Controls.Add(this.label3);
             this.gbIDCard.Controls.Add(this.label4);
             this.gbIDCard.Controls.Add(this.label5);
@@ -254,21 +256,21 @@
             this.gbIDCard.TabStop = false;
             this.gbIDCard.Text = "ID Card";
             // 
-            // maskedTextBox6
+            // tbStudentGrade
             // 
-            this.maskedTextBox6.Location = new System.Drawing.Point(160, 206);
-            this.maskedTextBox6.Name = "maskedTextBox6";
-            this.maskedTextBox6.ReadOnly = true;
-            this.maskedTextBox6.Size = new System.Drawing.Size(254, 23);
-            this.maskedTextBox6.TabIndex = 28;
+            this.tbStudentGrade.Location = new System.Drawing.Point(160, 206);
+            this.tbStudentGrade.Name = "tbStudentGrade";
+            this.tbStudentGrade.ReadOnly = true;
+            this.tbStudentGrade.Size = new System.Drawing.Size(254, 23);
+            this.tbStudentGrade.TabIndex = 28;
             // 
-            // maskedTextBox5
+            // tbStudentGender
             // 
-            this.maskedTextBox5.Location = new System.Drawing.Point(291, 22);
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.ReadOnly = true;
-            this.maskedTextBox5.Size = new System.Drawing.Size(124, 23);
-            this.maskedTextBox5.TabIndex = 27;
+            this.tbStudentGender.Location = new System.Drawing.Point(291, 22);
+            this.tbStudentGender.Name = "tbStudentGender";
+            this.tbStudentGender.ReadOnly = true;
+            this.tbStudentGender.Size = new System.Drawing.Size(124, 23);
+            this.tbStudentGender.TabIndex = 27;
             // 
             // label2
             // 
@@ -279,39 +281,39 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Phone :";
             // 
-            // maskedTextBox1
+            // tbStudentPhone
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(160, 160);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.ReadOnly = true;
-            this.maskedTextBox1.Size = new System.Drawing.Size(254, 23);
-            this.maskedTextBox1.TabIndex = 25;
+            this.tbStudentPhone.Location = new System.Drawing.Point(160, 160);
+            this.tbStudentPhone.Name = "tbStudentPhone";
+            this.tbStudentPhone.ReadOnly = true;
+            this.tbStudentPhone.Size = new System.Drawing.Size(254, 23);
+            this.tbStudentPhone.TabIndex = 25;
             // 
-            // maskedTextBox2
+            // tbStudentEmail
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(160, 114);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.ReadOnly = true;
-            this.maskedTextBox2.Size = new System.Drawing.Size(254, 23);
-            this.maskedTextBox2.TabIndex = 24;
+            this.tbStudentEmail.Location = new System.Drawing.Point(160, 114);
+            this.tbStudentEmail.Name = "tbStudentEmail";
+            this.tbStudentEmail.ReadOnly = true;
+            this.tbStudentEmail.Size = new System.Drawing.Size(254, 23);
+            this.tbStudentEmail.TabIndex = 24;
             // 
-            // maskedTextBox3
+            // tbStudentName
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(160, 68);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.ReadOnly = true;
-            this.maskedTextBox3.Size = new System.Drawing.Size(254, 23);
-            this.maskedTextBox3.TabIndex = 23;
+            this.tbStudentName.Location = new System.Drawing.Point(160, 68);
+            this.tbStudentName.Name = "tbStudentName";
+            this.tbStudentName.ReadOnly = true;
+            this.tbStudentName.Size = new System.Drawing.Size(254, 23);
+            this.tbStudentName.TabIndex = 23;
             // 
-            // maskedTextBox4
+            // tbStudentID
             // 
-            this.maskedTextBox4.HidePromptOnLeave = true;
-            this.maskedTextBox4.Location = new System.Drawing.Point(161, 22);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.ReadOnly = true;
-            this.maskedTextBox4.Size = new System.Drawing.Size(115, 23);
-            this.maskedTextBox4.TabIndex = 14;
-            this.maskedTextBox4.ValidatingType = typeof(int);
+            this.tbStudentID.HidePromptOnLeave = true;
+            this.tbStudentID.Location = new System.Drawing.Point(161, 22);
+            this.tbStudentID.Name = "tbStudentID";
+            this.tbStudentID.ReadOnly = true;
+            this.tbStudentID.Size = new System.Drawing.Size(115, 23);
+            this.tbStudentID.TabIndex = 14;
+            this.tbStudentID.ValidatingType = typeof(int);
             // 
             // label3
             // 
@@ -360,6 +362,7 @@
             // 
             // pbPersonalPicture
             // 
+            this.pbPersonalPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPersonalPicture.Location = new System.Drawing.Point(6, 22);
             this.pbPersonalPicture.Name = "pbPersonalPicture";
             this.pbPersonalPicture.Size = new System.Drawing.Size(148, 135);
@@ -393,6 +396,7 @@
             this.StudentListView.TabIndex = 3;
             this.StudentListView.UseCompatibleStateImageBehavior = false;
             this.StudentListView.View = System.Windows.Forms.View.Details;
+            this.StudentListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.StudentListView_ItemSelectionChanged);
             // 
             // columnID
             // 
@@ -424,6 +428,13 @@
             this.columnGender.Text = "Gender";
             this.columnGender.Width = 100;
             // 
+            // LargeImageList
+            // 
+            this.LargeImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("LargeImageList.ImageStream")));
+            this.LargeImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.LargeImageList.Images.SetKeyName(0, "Boy.png");
+            this.LargeImageList.Images.SetKeyName(1, "Girl.png");
+            // 
             // btnRemove
             // 
             this.btnRemove.BackgroundImage = global::Student_Management.Properties.Resources.remove_user;
@@ -443,6 +454,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 40);
             this.btnAdd.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnAdd, "Add new student");
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -455,20 +467,33 @@
             this.btnPrint.Size = new System.Drawing.Size(102, 40);
             this.btnPrint.TabIndex = 7;
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // LargeImageList
+            // btnFillStudents
             // 
-            this.LargeImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("LargeImageList.ImageStream")));
-            this.LargeImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.LargeImageList.Images.SetKeyName(0, "Boy.png");
-            this.LargeImageList.Images.SetKeyName(1, "Girl.png");
+            this.btnFillStudents.Location = new System.Drawing.Point(685, 299);
+            this.btnFillStudents.Name = "btnFillStudents";
+            this.btnFillStudents.Size = new System.Drawing.Size(103, 40);
+            this.btnFillStudents.TabIndex = 10;
+            this.btnFillStudents.Text = "Fill Students";
+            this.toolTip1.SetToolTip(this.btnFillStudents, "To adding students for test");
+            this.btnFillStudents.UseVisualStyleBackColor = true;
+            this.btnFillStudents.Click += new System.EventHandler(this.btnFillStudents_Click);
             // 
-            // Form1
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 1000;
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 1000;
+            this.toolTip1.ReshowDelay = 500;
+            // 
+            // frmStudentManagement
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 633);
+            this.Controls.Add(this.btnFillStudents);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnPrint);
@@ -476,8 +501,9 @@
             this.Controls.Add(this.gbIDCard);
             this.Controls.Add(this.gbStudentInfo);
             this.Controls.Add(this.lblTitle);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmStudentManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Student Management";
             this.gbStudentInfo.ResumeLayout(false);
             this.gbStudentInfo.PerformLayout();
             this.gbIDCard.ResumeLayout(false);
@@ -507,17 +533,17 @@
         private System.Windows.Forms.GroupBox gbIDCard;
         private System.Windows.Forms.PictureBox pbPersonalPicture;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.MaskedTextBox tbStudentPhone;
+        private System.Windows.Forms.MaskedTextBox tbStudentEmail;
+        private System.Windows.Forms.MaskedTextBox tbStudentName;
+        private System.Windows.Forms.MaskedTextBox tbStudentID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox6;
+        private System.Windows.Forms.MaskedTextBox tbStudentGender;
+        private System.Windows.Forms.MaskedTextBox tbStudentGrade;
         private System.Windows.Forms.ImageList SmallImageList;
         private System.Windows.Forms.ListView StudentListView;
         private System.Windows.Forms.ColumnHeader columnID;
@@ -530,6 +556,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.ImageList LargeImageList;
+        private System.Windows.Forms.Button btnFillStudents;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
