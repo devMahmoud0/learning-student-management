@@ -16,5 +16,14 @@ namespace Student_Management
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (tbID.Text == "" || tbName.Text == "" || tbEmail.Text == "" || tbPhone.Text == "" || cbGrade.Text == "")
+            {
+                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
     }
 }
